@@ -1,6 +1,7 @@
-const Header = () => {
+const Header = (props: any) => {
+    debugger
     return (<div>
-        <h1>Our Header_component</h1>
+        <h1>{props.title}</h1>
         </div>);
 }
 

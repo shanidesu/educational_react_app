@@ -17,3 +17,7 @@
   + Что такое JSX
   + _ReactDom.render()_
   + Как работать с _debugger_
++ #### 3. Props в React
+  + Понятие Single Responsibility
+  + Что собой представляет props
+  + Динамичность  компонентов с помощью props
