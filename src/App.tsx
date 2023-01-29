@@ -9,10 +9,11 @@ import Rating from "./react-kabzda (import & export)/components/Rating/Rating";
 function App() {
   return (
     <div>
-      <Header title="Our Header_component"/>,
-      <Content />,
-      <Rating value={3}/>,
-      <Accordion title="Заголовок аккордиона"/>
+      <Header title="Our Header_component"/>
+      <Content />
+      <Rating value={3}/>
+      <Accordion titleValue="Заголовок аккордиона"/>
+      <Rating value={5}/>
     </div>
   );
 }
