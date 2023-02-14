@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  padding: 20px -10px 0;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.block {
+  width: 140px;
+  height: 70px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lamp {
+  width: 80px;
+  height: 80px;
+  border: 3px solid black;
+  border-radius: 50%;
+}

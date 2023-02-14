@@ -1,62 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 
 type RatingPropsType = {
   value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-function Rating(props: RatingPropsType) {
-  if (props.value === 1) {
-    return (<div>
-      <Star selected={true}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-    </div>);
-  }
-  if (props.value === 2) {
-    return (<div>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-    </div>);
-  }
-  if (props.value === 3) {
-    return (<div>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={false}/>
-      <Star selected={false}/>
-    </div>);
-  }
-  if (props.value === 4) {
-    return (<div>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={false}/>
-    </div>);
-  }
-  if (props.value === 5) {
-    return (<div>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-      <Star selected={true}/>
-    </div>);
-  }
-  return (<div>
-    <Star selected={true}/>
-    <Star selected={true}/>
-    <Star selected={true}/>
-    <Star selected={true}/>
-    <Star selected={true}/>
-  </div>);
+export const Rating = (props: RatingPropsType) => {
+
+  let [grade, setGrade] = useState(props.value)
+    return (
+      <div>
+        <Star selected={grade > 0}/><button onClick={() => setGrade(1)}>1</button>
+        <Star selected={grade > 1}/><button onClick={() => setGrade(2)}>2</button>
+        <Star selected={grade > 2}/><button onClick={() => setGrade(3)}>3</button>
+        <Star selected={grade > 3}/><button onClick={() => setGrade(4)}>4</button>
+        <Star selected={grade > 4}/><button onClick={() => setGrade(5)}>5</button>
+      </div>
+    )
 }
 
 type StarPropsType = {
@@ -72,5 +31,3 @@ function Star(props: StarPropsType) {
   }
 
 }
-
-export default Rating;
