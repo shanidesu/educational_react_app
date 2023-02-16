@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import s from './UncontrolledAccordion.module.css'
 type AccordionPropsType = {
   titleValue: string
   collapsed: boolean
@@ -9,9 +9,12 @@ export const UncontrolledAccordion = (props: AccordionPropsType) => {
 
   let [collapsed, setCollapsed] = useState(props.collapsed)
 
+  const collapseList = () => {
+    setCollapsed(!collapsed)
+  }
+
   return <div>
-    <AccordionTitle title = {props.titleValue}/>
-    <button onClick={() => setCollapsed(!collapsed)}>^</button>
+    <AccordionTitle callbackCollapse={collapseList} title = {props.titleValue}/>
     {!collapsed && <AccordionBody/>}
     <div></div>
   </div>
@@ -21,10 +24,11 @@ export const UncontrolledAccordion = (props: AccordionPropsType) => {
 
 type AccordionTitlePropsType = {
   title: string
+  callbackCollapse: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-  return <h3>{props.title}</h3>
+  return <h3 className={s.title} onClick={props.callbackCollapse}>{props.title}</h3>
 }
 
 

@@ -1,33 +1,41 @@
 import React, {useState} from "react";
+import s from './Rating.module.css'
+type valueType = 0 | 1 | 2 | 3 | 4 | 5
 
 type RatingPropsType = {
-  value: 0 | 1 | 2 | 3 | 4 | 5
+  value: valueType
 }
 
 export const Rating = (props: RatingPropsType) => {
 
   let [grade, setGrade] = useState(props.value)
+
+  const selectRating = (value:valueType) => {setGrade(value)}
+
+
     return (
       <div>
-        <Star selected={grade > 0}/><button onClick={() => setGrade(1)}>1</button>
-        <Star selected={grade > 1}/><button onClick={() => setGrade(2)}>2</button>
-        <Star selected={grade > 2}/><button onClick={() => setGrade(3)}>3</button>
-        <Star selected={grade > 3}/><button onClick={() => setGrade(4)}>4</button>
-        <Star selected={grade > 4}/><button onClick={() => setGrade(5)}>5</button>
+        <Star value={1} callbackRating={selectRating} selected={grade > 0}/>
+        <Star value={2} callbackRating={selectRating} selected={grade > 1}/>
+        <Star value={3} callbackRating={selectRating} selected={grade > 2}/>
+        <Star value={4} callbackRating={selectRating} selected={grade > 3}/>
+        <Star value={5} callbackRating={selectRating} selected={grade > 4}/>
       </div>
     )
 }
 
 type StarPropsType = {
   selected: boolean
+  value: valueType
+  callbackRating: (value:valueType) => void
 }
 
 
 function Star(props: StarPropsType) {
-  if (props.selected) {
-    return <span><b>Star </b></span>
-  } else {
-    return <span>Star </span>
-  }
 
+  const onClickHandler = () => {props.callbackRating(props.value)}
+
+  return props.selected
+    ? <span className={s.star} onClick={onClickHandler}><b>Star </b></span>
+    : <span className={s.star} onClick={onClickHandler}>Star </span>
 }
