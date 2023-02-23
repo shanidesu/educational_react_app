@@ -1,22 +1,17 @@
-import React, {useState} from "react";
+import React from "react";
 import s from './UncontrolledAccordion.module.css'
 type AccordionPropsType = {
   titleValue: string
   collapsed: boolean
+  callbackSetCollapsed: (value: boolean) => void
 }
 
-export const UncontrolledAccordion = (props: AccordionPropsType) => {
-
-  let [collapsed, setCollapsed] = useState(props.collapsed)
-
-  const collapseList = () => {
-    setCollapsed(!collapsed)
-  }
+export const UncontrolledAccordion: React.FC<AccordionPropsType> = (props) => {
 
   return <div>
-    <AccordionTitle callbackCollapse={collapseList} title = {props.titleValue}/>
-    {!collapsed && <AccordionBody/>}
-    <div></div>
+    <AccordionTitle callbackCollapse={() => {props.callbackSetCollapsed(!props.collapsed)}}
+                    title = {props.titleValue}/>
+    {!props.collapsed && <AccordionBody/>}
   </div>
 }
 
