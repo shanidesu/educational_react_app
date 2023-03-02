@@ -1,27 +1,26 @@
 import React from "react";
-import s from './UncontrolledOnOff.module.css'
+import s from './Switcher.module.css'
 
 
 type OnOffType = {
   on: boolean
-  callBackSetOn: (value: boolean) => void
+  callBackSetOn?: (value: boolean) => void
 }
 
-
-export const UncontrolledOnOff: React.FC<OnOffType> = (props) => {
+export const Switcher: React.FC<OnOffType> = (props) => {
 
     return (
       <div className={s.container}>
         <div
           className={s.block}
           style={{backgroundColor: props.on ? 'green' : 'white'}}
-          onClick={() => props.callBackSetOn(!props.on)}
+          onClick={() => props.callBackSetOn?.(true)}
         >ON</div>
 
         <div
           className={s.block}
           style={{backgroundColor: props.on ? 'white' : 'red'}}
-          onClick={() => props.callBackSetOn(!props.on)}
+          onClick={() => props.callBackSetOn?.(false)}
         >OFF</div>
 
         <div

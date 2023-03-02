@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import "./App.css";
 import Header from "./react-kabzda (import & export)/components/header";
 import Content from "./react-kabzda (import & export)/components/content";
-import {UncontrolledAccordion} from "./react-kabzda (import & export)/components/Accordions/UncontrolledAccordion";
-import {UncontrolledRating, valueType} from "./react-kabzda (import & export)/components/Rating/UncontrolledRating";
-import {UncontrolledOnOff} from "./react-kabzda (import & export)/components/OnOff/UncontrolledOnOff";
+import {Accordion} from "./react-kabzda (import & export)/components/Accordions/Accordion";
+import {Rating, valueType} from "./react-kabzda (import & export)/components/Rating/Rating";
+import {Switcher} from "./react-kabzda (import & export)/components/Switcher/Switcher";
 
 
 function App() {
@@ -18,13 +18,13 @@ function App() {
     <div>
       <Header title="Our Header_component"/>
       <Content />
-      <UncontrolledRating grade={grade} callbackSetGrade={setGrade}/>
-      <UncontrolledAccordion titleValue="Заголовок аккордиона"
-                             collapsed={collapsed}
-                             callbackSetCollapsed={setCollapsed}/>
+      <Rating grade={grade} callbackSetGrade={setGrade}/>
+      <Accordion titleValue="Заголовок аккордиона"
+                 collapsed={collapsed}
+                 callbackSetCollapsed={setCollapsed}/>
 
-      <UncontrolledOnOff on={on1} callBackSetOn={setOn1}/>
-      <UncontrolledOnOff on={on2} callBackSetOn={setOn2}/>
+      <Switcher on={on1} callBackSetOn={setOn1}/>
+      <Switcher on={on2} callBackSetOn={setOn2}/>
     </div>
   );
 }

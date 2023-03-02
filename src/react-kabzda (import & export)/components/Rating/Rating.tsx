@@ -1,5 +1,5 @@
 import React from "react";
-import s from './UncontrolledRating.module.css'
+import s from './Rating.module.css'
 export type valueType = 0 | 1 | 2 | 3 | 4 | 5
 
 export type RatingPropsType = {
@@ -7,7 +7,7 @@ export type RatingPropsType = {
   callbackSetGrade: (value: valueType) => void
 }
 
-export const UncontrolledRating: React.FC<RatingPropsType> = (props ) => {
+export const Rating: React.FC<RatingPropsType> = (props ) => {
 
     return (
       <div>
