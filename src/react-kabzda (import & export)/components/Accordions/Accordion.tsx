@@ -9,7 +9,7 @@ type AccordionPropsType = {
 export const Accordion: React.FC<AccordionPropsType> = (props) => {
 
   return <div>
-    <AccordionTitle callbackCollapse={() => {props.callbackSetCollapsed(!props.collapsed)}}
+    <AccordionTitle callbackCollapse={() => props.callbackSetCollapsed(!props.collapsed)}
                     title = {props.titleValue}/>
     {!props.collapsed && <AccordionBody/>}
   </div>

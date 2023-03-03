@@ -14,6 +14,7 @@ export const Rating2 = () => <Rating grade={2} callbackSetGrade={x => x}/>
 export const Rating3 = () => <Rating grade={3} callbackSetGrade={x => x}/>
 export const Rating4 = () => <Rating grade={4} callbackSetGrade={x => x}/>
 export const Rating5 = () => <Rating grade={5} callbackSetGrade={x => x}/>
+export const Rating6 = () => <Rating grade={5} callbackSetGrade={x => x}/>
 export const ChangeRating = () => {
 
   const [grade, setGrade] = useState<valueType>(0)

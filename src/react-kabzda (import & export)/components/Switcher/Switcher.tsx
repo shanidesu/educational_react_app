@@ -14,7 +14,9 @@ export const Switcher: React.FC<OnOffType> = (props) => {
         <div
           className={s.block}
           style={{backgroundColor: props.on ? 'green' : 'white'}}
-          onClick={() => props.callBackSetOn?.(true)}
+          onClick={() => {
+            if (!props.on ) props.callBackSetOn?.(true)
+          }}
         >ON</div>
 
         <div
